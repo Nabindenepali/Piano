@@ -17,14 +17,44 @@ body {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    font-size: 0;
 }
 
 #piano .white-key {
     width: 50px;
-    height: 100px;
+    height: 150px;
     background: white;
-    margin: 5px;
-    float: left;
+    display: inline-block;
+    margin: 2px;
+}
+
+#piano .black-key {
+    position: absolute;
+    top: 0;
+    width: 34px;
+    height: 100px;
+    background: black;
+    display: inline-block;
+}
+
+#Db-key {
+    left: 39px;
+}
+
+#Eb-key {
+    left: 93px;
+}
+
+#Gb-key {
+    left: 201px;
+}
+
+#Ab-key {
+    left: 255px;
+}
+
+#Bb-key {
+    left: 309px;
 }
 
 @media screen and (max-width: 1024px) {
