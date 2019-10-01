@@ -51,6 +51,10 @@ body {
     border: 2px solid cornflowerblue;
 }
 
+#piano audio {
+    display: none;
+}
+
 #Db-key {
     left: 39px;
 }

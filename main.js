@@ -45,20 +45,23 @@ function getNote(key) {
  * Handle keypress events, simulate press of key
  */
 document.addEventListener('keypress', e => {
-  const pianoKey = getNote(e.key.toLowerCase());
-  if (!pianoKey) {
+  const note = getNote(e.key.toLowerCase());
+  if (!note) {
     return;
   }
-  pianoKeyDivs[pianoKey].classList.add('pressed');
+  pianoKeyDivs[note].classList.add('pressed');
+  pianoKeyDivs[note].childNodes[1].play();
 });
 
 /**
  * Handle keyup events, simulate release of key
  */
 document.addEventListener('keyup', e => {
-  const pianoKey = getNote(e.key.toLowerCase());
-  if (!pianoKey) {
+  const note = getNote(e.key.toLowerCase());
+  if (!note) {
     return;
   }
-  pianoKeyDivs[pianoKey].classList.remove('pressed');
+  pianoKeyDivs[note].classList.remove('pressed');
+  pianoKeyDivs[note].childNodes[1].pause();
+  pianoKeyDivs[note].childNodes[1].currentTime = 0;
 });
