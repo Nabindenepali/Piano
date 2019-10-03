@@ -55,24 +55,32 @@ body {
     display: none;
 }
 
-#Db-key {
+#Db3-key {
     left: 39px;
 }
 
-#Eb-key {
+#Eb3-key {
     left: 93px;
 }
 
-#Gb-key {
+#Gb3-key {
     left: 201px;
 }
 
-#Ab-key {
+#Ab3-key {
     left: 255px;
 }
 
-#Bb-key {
+#Bb3-key {
     left: 309px;
+}
+
+#Db4-key {
+    left: 417px;
+}
+
+#Eb4-key {
+    left: 471px;
 }
 
 @media screen and (max-width: 1024px) {

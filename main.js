@@ -1,37 +1,24 @@
-/***
- * Map containing divs corresponding to the different notes
- */
-const pianoKeyDivs = {
-  C: document.getElementById('C-key'),
-  Db: document.getElementById('Db-key'),
-  D: document.getElementById('D-key'),
-  Eb: document.getElementById('Eb-key'),
-  E: document.getElementById('E-key'),
-  F: document.getElementById('F-key'),
-  Gb: document.getElementById('Gb-key'),
-  G: document.getElementById('G-key'),
-  Ab: document.getElementById('Ab-key'),
-  A: document.getElementById('A-key'),
-  Bb: document.getElementById('Bb-key'),
-  B: document.getElementById('B-key')
-};
-
 /**
  * Map of keys with corresponding keyboard notes
  */
 const keyNotesMap = {
-  a: 'C',
-  w: 'Db',
-  s: 'D',
-  e: 'Eb',
-  d: 'E',
-  f: 'F',
-  t: 'Gb',
-  g: 'G',
-  y: 'Ab',
-  h: 'A',
-  u: 'Bb',
-  j: 'B'
+  a: 'C3',
+  w: 'Db3',
+  s: 'D3',
+  e: 'Eb3',
+  d: 'E3',
+  f: 'F3',
+  t: 'Gb3',
+  g: 'G3',
+  y: 'Ab3',
+  h: 'A3',
+  u: 'Bb3',
+  j: 'B3',
+  k: 'C4',
+  o: 'Db4',
+  l: 'D4',
+  p: 'Eb4',
+  ';': 'E4'
 };
 
 /**
@@ -49,8 +36,9 @@ document.addEventListener('keypress', e => {
   if (!note) {
     return;
   }
-  pianoKeyDivs[note].classList.add('pressed');
-  pianoKeyDivs[note].childNodes[1].play();
+  const key = document.getElementById(note + '-key');
+  key.classList.add('pressed');
+  key.childNodes[1].play();
 });
 
 /**
@@ -61,7 +49,8 @@ document.addEventListener('keyup', e => {
   if (!note) {
     return;
   }
-  pianoKeyDivs[note].classList.remove('pressed');
-  pianoKeyDivs[note].childNodes[1].pause();
-  pianoKeyDivs[note].childNodes[1].currentTime = 0;
+  const key = document.getElementById(note + '-key');
+  key.classList.remove('pressed');
+  key.childNodes[1].pause();
+  key.childNodes[1].currentTime = 0;
 });
