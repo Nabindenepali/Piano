@@ -1,3 +1,5 @@
+let activeNote = '';
+
 /**
  * Map of keys with corresponding keyboard notes
  */
@@ -36,8 +38,13 @@ document.addEventListener('keypress', e => {
   if (!note) {
     return;
   }
+  if (activeNote && (activeNote === note)) {
+    return;
+  }
+  activeNote = note;
   const key = document.getElementById(note + '-key');
   key.classList.add('pressed');
+  key.childNodes[1].currentTime = 0;
   key.childNodes[1].play();
 });
 
@@ -45,12 +52,11 @@ document.addEventListener('keypress', e => {
  * Handle keyup events, simulate release of key
  */
 document.addEventListener('keyup', e => {
+  activeNote = '';
   const note = getNote(e.key.toLowerCase());
   if (!note) {
     return;
   }
   const key = document.getElementById(note + '-key');
   key.classList.remove('pressed');
-  key.childNodes[1].pause();
-  key.childNodes[1].currentTime = 0;
 });
